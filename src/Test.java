@@ -1,18 +1,15 @@
 import java.util.Scanner;
 
 public class Test {
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        Cafeteria cafeteria =
-                new Cafeteria("Smart Coffee");
+        Cafeteria cafeteria = new Cafeteria("Smart Coffee");
 
         int opcion;
 
         do {
-
             System.out.println("\n========= SMART COFFEE =========");
             System.out.println("1. Registrar cliente");
             System.out.println("2. Mostrar clientes");
@@ -34,7 +31,6 @@ public class Test {
                 case 1:
 
                     try {
-
                         System.out.print("Nombre: ");
                         String nombre = sc.nextLine();
 
@@ -51,127 +47,85 @@ public class Test {
                         System.out.print("Membresía (Gold/Silver/Premium): ");
                         String membresia = sc.nextLine();
 
-                        Cliente cliente =
-                                new Cliente(
-                                        nombre,
-                                        correo,
-                                        edad,
-                                        codigo,
-                                        membresia);
+                        Cliente cliente = new Cliente(nombre, correo, edad, codigo, membresia);
 
                         if (cafeteria.registrarCliente(cliente)) {
-                            System.out.println(
-                                    "Cliente registrado correctamente.");
+                            System.out.println("Cliente registrado correctamente.");
                         } else {
-                            System.out.println(
-                                    "Cliente duplicado.");
+                            System.out.println("Cliente duplicado.");
                         }
 
                     } catch (Exception e) {
-
-                        System.out.println(
-                                "Error: " + e.getMessage());
+                        System.out.println("Error: " + e.getMessage());
                     }
-
                     break;
 
                 case 2:
-
                     cafeteria.mostrarClientes();
-
                     break;
 
                 case 3:
 
                     System.out.print("Correo: ");
-                    String correoPedido =
-                            sc.nextLine();
+                    String correoPedido = sc.nextLine();
 
                     System.out.print("Consumo: ");
-                    double consumo =
-                            sc.nextDouble();
+                    double consumo = sc.nextDouble();
 
-                    cafeteria.registrarPedido(
-                            correoPedido,
-                            consumo);
+                    cafeteria.registrarPedido(correoPedido, consumo);
 
                     break;
 
                 case 4:
 
                     System.out.print("Correo: ");
-                    String correoActualizar =
-                            sc.nextLine();
+                    String correoActualizar = sc.nextLine();
 
-                    System.out.print(
-                            "Nuevo consumo: ");
+                    System.out.print("Nuevo consumo: ");
 
-                    double nuevoConsumo =
-                            sc.nextDouble();
+                    double nuevoConsumo = sc.nextDouble();
 
-                    cafeteria.actualizarPedido(
-                            correoActualizar,
-                            nuevoConsumo);
+                    cafeteria.actualizarPedido(correoActualizar, nuevoConsumo);
 
                     break;
 
                 case 5:
-
                     System.out.print("Correo: ");
-                    String correoEliminar =
-                            sc.nextLine();
-
-                    cafeteria.eliminarPedido(
-                            correoEliminar);
-
+                    String correoEliminar = sc.nextLine();
+                    cafeteria.eliminarPedido(correoEliminar);
                     break;
 
                 case 6:
-
                     cafeteria.promedioConsumo();
-
                     break;
 
                 case 7:
-
                     cafeteria.mejorCliente();
-
                     break;
 
                 case 8:
 
                     System.out.print("Correo: ");
-                    String correoBuscar =
-                            sc.nextLine();
-
-                    Cliente cliente =
-                            cafeteria.buscarCliente(
-                                    correoBuscar);
+                    String correoBuscar = sc.nextLine();
+                    Cliente cliente = cafeteria.buscarCliente(correoBuscar);
 
                     if (cliente != null) {
                         System.out.println(cliente);
                     } else {
-                        System.out.println(
-                                "Cliente no encontrado.");
+                        System.out.println("Cliente no encontrado.");
                     }
-
                     break;
 
                 case 9:
-
                     cafeteria.mostrarPedidos();
-
                     break;
 
                 case 10:
-
                     System.out.println("Fin del programa.");
                     break;
 
                 default:
-
-                    System.out.println(
-                            "Opción inválida.");
+                    System.out.println("Opción inválida.");
             }
 
         } while (opcion != 10);

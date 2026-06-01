@@ -1,5 +1,4 @@
 public class Persona {
-
     private String nombre;
     private String correo;
     private int edad;
@@ -35,16 +34,13 @@ public class Persona {
 
     public void setEdad(int edad) {
         if (edad < 18 || edad > 60) {
-            throw new IllegalArgumentException(
-                    "La edad debe estar entre 18 y 60 años");
+            throw new IllegalArgumentException("La edad debe estar entre 18 y 60 años");
         }
         this.edad = edad;
     }
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre +
-                ", Correo: " + correo +
-                ", Edad: " + edad;
+        return "Nombre: " + nombre + ", Correo: " + correo + ", Edad: " + edad;
     }
 }

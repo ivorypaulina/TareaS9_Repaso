@@ -1,18 +1,11 @@
 import java.util.Objects;
 
 public class Cliente extends Persona {
-
     private String codigoCliente;
     private String tipoMembresia;
 
-    public Cliente(String nombre,
-                   String correo,
-                   int edad,
-                   String codigoCliente,
-                   String tipoMembresia) {
-
+    public Cliente(String nombre, String correo, int edad, String codigoCliente, String tipoMembresia) {
         super(nombre, correo, edad);
-
         this.codigoCliente = codigoCliente;
         setTipoMembresia(tipoMembresia);
     }
@@ -30,7 +23,6 @@ public class Cliente extends Persona {
     }
 
     public void setTipoMembresia(String tipoMembresia) {
-
         if (!tipoMembresia.equalsIgnoreCase("Gold") &&
                 !tipoMembresia.equalsIgnoreCase("Silver") &&
                 !tipoMembresia.equalsIgnoreCase("Premium")) {
@@ -44,9 +36,7 @@ public class Cliente extends Persona {
 
     @Override
     public String toString() {
-        return super.toString() +
-                ", Código: " + codigoCliente +
-                ", Membresía: " + tipoMembresia;
+        return super.toString() + ", Código: " + codigoCliente + ", Membresía: " + tipoMembresia;
     }
 
     @Override
